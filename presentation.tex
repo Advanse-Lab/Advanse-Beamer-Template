@@ -1,0 +1,71 @@
+%===============================================================================
+% Template Name:      Advanse Group Template
+% Template URI:       
+% Description:        DC-UFSCar
+%                  
+% Version:            1.0
+% Author:             Daniel San Martín
+% License:            MIT License
+% License URI:        http://opensource.org/licenses/MIT
+%===============================================================================
+\documentclass[serif,11pt,usenames,dvipsnames]{beamer}{\tiny }
+\usetheme{advanse}
+%========================
+% load packages
+%========================
+\usepackage{tabularx}
+
+%========================
+% funding institution's logo
+%========================
+\titlegraphic{
+	\begin{tikzpicture}[remember picture, overlay]
+		\node[anchor=west] at (-5.8,0.5){\pgfuseimage{fund}};
+	\end{tikzpicture}	
+}
+
+\title[Short title]{ Long Title of Your Presentation}
+\author[Your Name --- {\sc Month day\superscript{th}, Year}]{Your Name}
+\institute{PhD Advisor: Valter Vieira de Camargo \\ Advanse Group \\ Department of Computing, UFSCar \\ São Carlos, SP, Brazil}
+\date{\today}
+
+\begin{document}
+
+%========================
+% title page
+%========================
+\begin{frame}
+	\titlepage
+\end{frame}
+%========================
+%Table of Contents
+%========================
+\begin{frame}\frametitle{Outline}
+\tableofcontents
+\end{frame}
+%========================
+%Slides
+%========================
+\section{Introduction}
+\input{slides/introduction}
+\section{Background}
+\input{slides/background}
+\section{Methodology}
+\input{slides/methodology}
+\section{Results}
+\input{slides/results}
+%========================
+% bibliography
+%========================
+\section{References}
+\input{slides/bib}
+%=================================================
+% end presentation
+%=================================================
+\section*{}
+\begin{frame}{}
+\centering \Huge
+\emph{Thank You, Questions?}
+\end{frame}
+
+\end{document}

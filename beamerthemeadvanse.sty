@@ -1,0 +1,181 @@
+%===============================================================================
+% Template Name:      Advanse Group Template
+% Template URI:       
+% Description:        DC-UFSCar
+%                  
+% Version:            1.0
+% Author:             Daniel San Martín
+% License:            MIT License
+% License URI:        http://opensource.org/licenses/MIT
+%===============================================================================
+\mode<presentation>
+{
+ \usetheme{Warsaw}
+
+}
+%=================================================
+% Colors
+%=================================================
+\definecolor{colorA}{RGB}{255, 108, 41}
+\definecolor{colorB}{RGB}{140, 151, 154}
+\definecolor{rgate}{RGB}{0, 204, 187}
+\definecolor{orange}{RGB}{5, 51, 92}   
+%=================================================
+% Packages
+%=================================================
+\RequirePackage{tikz}
+\RequirePackage[ruled, linesnumbered, vlined]{algorithm2e}
+\usetikzlibrary{fit,arrows,calc,positioning}
+\RequirePackage{ragged2e}
+\RequirePackage{tabularx}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{xcolor}
+\RequirePackage{ifthen}
+\RequirePackage{epsfig, subfigure, amssymb, multirow, algorithmic, amsmath}
+%=================================================
+% New commands
+%=================================================
+\newcommand*{\superscript}[1]{\ensuremath{^{\rm #1}}}
+\newcommand*{\subscript}[1]{\ensuremath{_{\rm #1}}}
+%=================================================
+% Theme
+%=================================================
+\useoutertheme[subsection=false]{smoothbars}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]  
+\setbeamercolor{frametitle}{parent=subsection in head}
+\setbeamercolor{frametitle right}{parent=section in head}
+
+\makeatletter
+\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
+	color(0pt)=(frametitle.bg);
+	color(\paperwidth)=(frametitle right.bg)}
+
+\AtBeginDocument{
+	\pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+		color(0pt)=(bg);
+		color(4pt)=(black!50!bg)}
+}
+
+\addtobeamertemplate{headline}
+{}
+{%
+	\vskip-0.2pt
+	\pgfuseshading{beamer@topshade}
+	\vskip-2pt
+}
+
+\setbeamertemplate{frametitle}
+{%
+	\nointerlineskip%
+	\vskip-2pt%
+	\hbox{\leavevmode
+		\advance\beamer@leftmargin by -12bp%
+		\advance\beamer@rightmargin by -12bp%
+		\beamer@tempdim=\textwidth%
+		\advance\beamer@tempdim by \beamer@leftmargin%
+		\advance\beamer@tempdim by \beamer@rightmargin%
+		\hskip-\Gm@lmargin\hbox{%
+			\setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+					\vbox{}\vskip-.75ex%
+					\leftskip0.3cm%
+					\rightskip0.3cm plus1fil\leavevmode
+					\insertframetitle%
+					\ifx\insertframesubtitle\@empty%
+					\strut\par%
+					\else
+					\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+					\fi%
+					\nointerlineskip
+					\vbox{}%
+			\end{minipage}}%
+			\beamer@tempdim=\ht\beamer@tempbox%
+			\advance\beamer@tempdim by 2pt%
+			\begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+				\usebeamercolor{frametitle right}
+				\pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+				\pgfusepath{clip}
+				\pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+			\end{pgfpicture}
+			\hskip-\paperwidth%
+			\box\beamer@tempbox%
+		}%
+		\hskip-\Gm@rmargin%
+	}%
+	\nointerlineskip
+	\vskip-0.2pt
+	\hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+	\vskip-2pt
+	\vspace*{-0.5cm}}{\vspace*{0cm}
+}
+\makeatother
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{structure}{fg=colorA,bg=colorB}
+\colorlet{titleleft}{colorA}
+\colorlet{titleright}{black}
+\setbeamercolor*{frametitle}{fg=white}
+\makeatletter
+\pgfdeclarehorizontalshading[titleleft,titleright]{beamer@frametitleshade}{\paperheight}{%
+	color(0pt)=(titleleft);
+	color(\paperwidth)=(titleright)}
+\makeatother
+%=================================================
+% Details (preamble)
+%=================================================
+\setbeamerfont{title}{series=\sc\large\bfseries,parent=structure}
+
+
+\setbeamertemplate{footline}{%
+	\leavevmode%
+	\hbox{\begin{beamercolorbox}[wd=.5 \paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.01cm plus1fill,rightskip=.2cm]{author in head/foot}%
+			\sc \usebeamerfont{title in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+	\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.2cm,rightskip=.15cm plus1fil]{title in head/foot}%
+			\sc \usebeamerfont{title in head/foot}\insertshorttitle{}
+			\hspace{0.8cm} 	\insertframenumber/\inserttotalframenumber
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatother
+
+%=================================================
+% Frame Logo
+%=================================================
+\addtobeamertemplate{frametitle}{}{%
+	\begin{tikzpicture}[remember picture,overlay]
+	\node at (10.8,0.4) {\includegraphics[width=1.5cm]{AdvanseGraphics/logoAdvanse}};
+	\end{tikzpicture}}
+%=================================================
+% Logos
+%=================================================
+\addtobeamertemplate{headline}{}
+{
+	\ifthenelse{\insertframenumber=1}{
+		\leavevmode%
+		\begin{tabular}{ccc}
+		    \rule{0pt}{1pt}	&&\\
+			
+		   \begin{beamercolorbox}[wd=.25\paperwidth, leftskip = 4ex]{}
+		   	\includegraphics[height=1cm]{AdvanseGraphics/logoDc}
+		   \end{beamercolorbox}
+		   &
+		   
+		   \begin{beamercolorbox}[wd=.41\paperwidth,center]{}
+		   	\includegraphics[height=1.1cm]{AdvanseGraphics/logoUFSCar}
+		   \end{beamercolorbox}
+		   
+		   &
+		   \begin{beamercolorbox}[wd=.33\paperwidth, rightskip = 4ex]{}
+		   	\includegraphics[height=0.7cm]{AdvanseGraphics/logoAdvanse}
+		   \end{beamercolorbox} \\
+	   
+		\end{tabular}
+	
+		\vspace{0.5cm}}{}
+}
+
+\pgfdeclareimage[height=1cm]{fund}{AdvanseGraphics/logoFund} % placed on the title page
+
+
+\mode<all>
+ 
